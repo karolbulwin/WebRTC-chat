@@ -1,0 +1,44 @@
+{
+  "name": "webrtc-chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "DEBUG=app,app* nodemon app.js",
+    "lint": "eslint app.js",
+    "scss": "sass --watch scss:public/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karolbulwin/WebRTC-chat.git"
+  },
+  "author": "Karol Bulwin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/karolbulwin/WebRTC-chat/issues"
+  },
+  "homepage": "https://github.com/karolbulwin/WebRTC-chat#readme",
+  "dependencies": {
+    "debug": "^4.1.1",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.10",
+    "path": "^0.12.7"
+  },
+  "nodemonConfig": {
+    "ignor": [
+      "node_modules/**/node_modules"
+    ],
+    "delay": "2500",
+    "env": {
+      "NODE_ENV": "development",
+      "port": 4002
+    }
+  },
+  "devDependencies": {
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0"
+  }
+}
