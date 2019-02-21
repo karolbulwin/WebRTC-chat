@@ -1,0 +1,6 @@
+<svg width="400px" height="400px" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <circle cx="200" cy="200" fill="rgb(250, 235, 215)" stroke="black" stroke-width="2" r="198"/>
+    <text fill="rgb(0, 0, 0)" x="2" y="244.8" font-size="130">
+        CHAT
+    </text>
+</svg>
