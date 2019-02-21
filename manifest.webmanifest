@@ -1,0 +1,33 @@
+{
+  "lang": "en",
+  "dir": "ltr",
+  "name": "WebRTC PeerJS data connections",
+  "short_name": "Chat",
+  "description": "WebRTC, simple data connections using PeerJS!",
+  "icons": [
+    {
+    "src": "public/images/icons/favicon-16.png",
+    "sizes": "16x16"
+  }, {
+    "src": "public/images/icons/favicon-64.png",
+    "sizes": "64x64"
+  }, {
+    "src": "public/images/icons/favicon-128.png",
+    "sizes": "128x128"
+  }, {
+    "src": "public/images/icons/favicon-144.png",
+    "sizes": "144x144"
+  }, {
+    "src": "public/images/icons/favicon-192.png",
+    "sizes": "192x192"
+  }, {
+    "src": "public/images/icons/favicon-512.png",
+    "sizes": "512x512"
+  }
+],
+  "start_url": "/WebRTC-chat/chat.html",
+  "scope": "/WebRTC-chat/",
+  "display": "fullscreen",
+  "background_color": "#fffaf0",
+  "theme_color": "#fffaf0"
+}
