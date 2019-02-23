@@ -1,0 +1,17 @@
+@media print {
+    *{
+        text-shadow: none;
+    }
+    h1, h2, input, label, p, button{
+        display: none;
+    }
+    .data-container {
+        display: block;
+        #message-box {
+            height: auto;
+            width: 100%;
+            overflow: visible;
+            page-break-inside: auto;
+        }
+    }
+}

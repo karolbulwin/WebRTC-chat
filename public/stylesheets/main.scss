@@ -1,0 +1,293 @@
+@import "init";
+@import "colors";
+@import "mixins";
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: $main-color;
+    text-align: center;
+    @include userSelect;
+    background-image: radial-gradient(
+        farthest-corner at 90% 90%, $background-color1, $background-color2
+    );
+    background-attachment: fixed;
+    &.using-mouse :focus:not(:disabled) { 
+        outline: none;
+    }
+    :focus:not(:disabled) {
+        outline-color: transparentize($focus, $amount: 0.5);
+        outline-style: solid;
+        outline-width: 2px;
+    }
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+    padding: 0.7em;
+    text-shadow: 0.0625em 0.1125em 0.125em rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 0.7em;
+    position: relative;
+    text-shadow: 0.0625em 0.1125em 0.125em rgba(0, 0, 0, 0.2);
+}
+
+label {
+    input {
+        margin-top: 1em;
+        margin-left: 0.5em;
+    }
+}
+
+p {
+    font-size: 1em;
+    padding: 1em;
+    width: 100%;
+    #my-id {
+        @include userSelect(text);
+    }
+}
+
+.flex-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100vh;
+    width: auto;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+
+.data-container {
+    position: relative;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    #data-container-resize-bttn {
+        position: absolute;
+        z-index: 1;
+        top: 2.7em;
+        right: 1.1em;
+        margin-right: 5%;
+        height: 2em;
+        width: 2em;
+        opacity: 0.4;
+        @include transition-duration(1s);
+        font-weight: bold;
+        &:hover {
+            opacity: 1;
+        }
+        &:focus {
+            opacity: 1;
+        }
+    }
+    #message-box {
+        position: relative;
+        background-color: $off-color;
+        margin: auto;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        width: 90%;
+        -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+                flex-grow: 1;
+        overflow-y: scroll;
+        border-radius: 0.375em;
+        @include boxshadowInset;
+        @include userSelect(text);
+        .user-message {
+            padding: 0.3125em;
+            margin-left: 0.5em;
+            @include userSelect($option: auto);
+            &:not(:first-child) {
+                text-align: left;
+            }
+            &:last-child {
+                margin-bottom: 2em;
+            }
+            &.error {
+                font-weight: bold;
+                color: $error-color;
+            }
+        }
+    }
+    .flex-container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        width: 90%;
+        margin: auto;
+        padding-bottom: 1em;
+        #data-to-send {
+            margin-bottom: 0.5em;
+            margin-top: 0.5em;
+            margin-left: 0.5em;
+            margin-right: 0.5em;
+            -webkit-box-flex: 1;
+                -ms-flex-positive: 1;
+                    flex-grow: 1;
+            @include transition-duration(500ms);
+        }
+        input[type=button] {
+            margin: auto;
+        }
+    }
+    &.fullWindow {
+        height: 100vh;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.invisible {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.delay-display {
+    @include transition-duration(2s);
+}
+
+.button {
+    padding: 0.3125em 0.9375em;
+    margin: 1em 0.5em 1em 0.5em;
+    border-radius: 0.375em;
+    @include boxshadow($horizontal: 0px, $vertical: 1px, $blur: 3px, $color: rgba(0, 0, 0, 0.8));
+    background-color: $bttn-color;
+    cursor: pointer;
+    outline: none;
+    &:disabled {
+        cursor: not-allowed;
+    }
+    &:hover:enabled, &:focus:enabled {
+        background-color: whitesmoke;
+    }
+    &:active:enabled { 
+        @include boxshadowInset($horizontal: 0px, $vertical: .1em, $blur: .3em, $spread: 0px, $color: rgba(0, 0, 0, 0.5));
+    }
+}
+
+input:not(.button) {
+    border-radius: 0.375em;
+    @include boxshadowInset($horizontal: -2px, $vertical: 1px, $blur: 4px, $spread: 0px, $color: rgba(0, 0, 0, 0.3));
+    height: 1.7em;
+}
+
+input[type=text] {
+    text-align: center;
+    background-color: $off-color;
+}
+
+#copy-bttn {
+    margin: 0;
+}
+
+.temp-texarea {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0.0625em;
+    height: 0.0625em;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    -webkit-box-shadow: 0;
+    box-shadow: 0;
+    background: transparent;
+    color: transparent;
+    font-size: 0.0625em;
+}
+
+#snackbar {
+    visibility: hidden; 
+    min-width: 15.625em; 
+    margin-left: -7.8125em;
+    background-color: $snackbar-color;
+    color: $main-color;
+    text-align: center;
+    border-radius: 0.375em;
+    padding: 1em;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 2em;
+    &.show {
+        visibility: visible;
+        @include animation;
+    }
+}
+
+@-webkit-keyframes fadein {
+    0% { 
+        bottom: 0;
+        opacity: 0;
+    }
+    100% {
+        bottom: 2em;
+        opacity: 1;
+    }
+}
+  
+@keyframes fadein {
+    0% {
+        bottom: 0;
+        opacity: 0;
+    }
+    100% {
+        bottom: 2em;
+        opacity: 1;
+    }
+}
+  
+@-webkit-keyframes fadeout {
+    0% {
+        bottom: 2em;
+        opacity: 1;
+    }
+    100% {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+  
+@keyframes fadeout {
+    0% {
+        bottom: 2em;
+        opacity: 1;
+    }
+    100% {
+        bottom: 0;
+        opacity: 0;
+    }
+} 
+
+@import "print";

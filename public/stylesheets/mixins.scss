@@ -1,0 +1,36 @@
+@mixin userSelect($option: none) {
+  -webkit-user-select: $option;
+  -moz-user-select: $option;
+  -ms-user-select: $option;
+  user-select: $option;
+}
+
+@mixin boxshadow($horizontal: -0.0625em, $vertical: 0.0625em, $blur: 0.3125em, $color: rgba(0, 0, 0, 0.3)) {
+  -webkit-box-shadow: $horizontal $vertical $blur $color;
+  box-shadow: $horizontal $vertical $blur $color;
+}
+
+@mixin boxshadowInset($horizontal: -0.0625em, $vertical: 0.0625em, $blur: 0.3125em, $spread: 0.125em, $color: rgba(0, 0, 0, 0.3)) {
+  -webkit-box-shadow: inset $horizontal $vertical $blur $spread $color;
+  box-shadow: inset $horizontal $vertical $blur $spread $color;
+}
+
+@mixin boxshadowFocus($horizontal: 0em, $vertical: 0em, $blur: 0em, $spread1: 0.0625em, $color1: $focus1, $spread2: 0.1875em, $color2: $focus2) {
+  -webkit-box-shadow: $horizontal $vertical $blur $spread1 $color1, $horizontal $vertical $blur $spread2 $color2;
+          box-shadow: $horizontal $vertical $blur $spread1 $color1, $horizontal $vertical $blur $spread2 $color2;
+}
+
+@mixin animation {
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;  
+}
+
+@mixin transition-delay($time: 50ms) {
+  -webkit-transition-delay: $time;
+  transition-delay: $time;
+} 
+
+@mixin transition-duration($time: 1s) {
+  -webkit-transition-duration: $time;
+  transition-duration: $time;
+}
