@@ -7,5 +7,8 @@ module.exports = {
     "rules": {
         "comma-dangle": ["error", "never"],
         "no-console": "off",
+    },
+    "globals": {
+        "Peer": "true"
     }
 };
