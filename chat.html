@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>WebRTC - PeerJS data connections</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#fffaf0" />
+  <meta name="description" content="WebRTC, simple data connections using PeerJS">
+  <meta name="keywords" content="WebRTC, PeerJS, data connections">
+  <meta name="author" content="Karol Bulwin">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Chat">
+  <meta property=og:title content="Chat">
+  <meta property=og:type content="website">
+  <meta property=og:image content="https://karolbulwin.github.io/WebRTC-chat/public/images/icons/favicon-192.png">
+  <meta property=og:url content="https://karolbulwin.github.io/WebRTC-chat/chat.html">
+  <meta property=og:description
+    content="WebRTC, simple data connections using PeerJS. No install just use it right away in your browser!">
+  <meta name=twitter:card content="summary">
+  <meta name=twitter:url content="https://karolbulwin.github.io/WebRTC-chat/chat.html">
+  <meta name=twitter:title content="Chat">
+  <meta name=twitter:description
+    content="WebRTC, simple data connections using PeerJS. No install just use it right away in your browser!">
+  <meta name=twitter:image content="https://karolbulwin.github.ioWebRTC-chat/public/images/icons/favicon-192.png">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <!-- CSS -->
+  <link rel="stylesheet" href="public/stylesheets/main.css">
+  <!-- Add to home screen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#fffaf0">
+  <meta name="apple-mobile-web-app-title" content="Chat">
+  <!-- ****** faviconit.com favicons ****** -->
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="icon" sizes="16x16 32x32 64x64" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="196x196" href="public/images/icons/favicon-192.png">
+  <link rel="icon" type="image/png" sizes="160x160" href="public/images/icons/favicon-160.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="public/images/icons/favicon-96.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="public/images/icons/favicon-64.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="public/images/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="public/images/icons/favicon-16.png">
+  <link rel="apple-touch-icon" href="public/images/icons/favicon-57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="public/images/icons/favicon-114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="public/images/icons/favicon-72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="public/images/icons/favicon-144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="public/images/icons/favicon-60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="public/images/icons/favicon-120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="public/images/icons/favicon-76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="public/images/icons/favicon-152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="public/images/icons/favicon-180.png">
+  <meta name="msapplication-TileColor" content="#000000">
+  <meta name="msapplication-TileImage" content="public/images/icons/favicon-144.png">
+  <meta name="msapplication-config" content="public/images/icons/browserconfig.xml">
+  <!-- ****** faviconit.com favicons ****** -->
+</head>
+
+<body>
+  <header>
+    <h1 class="delay-display flex-box hidden invisible to-hide">WebRTC</h1>
+  </header>
+
+  <main>
+
+    <h2 class="delay-display flex-box hidden invisible to-hide">Simple data connections using PeerJS</h2>
+
+    <div class="delay-display flex-box hidden invisible to-hide">
+      <label>Type your name below: </br>
+        <input type="text" id="peer-name" placeholder="Your name...">
+        <input type="button" id="peer-name-bttn" class="button" value="Confirm">
+      </label>
+    </div>
+
+    <div class="delay-display flex-box hidden invisible to-hide">
+      <p>Your id: <span id="my-id">...</span></p>
+      <input type="button" class="button" id="copy-bttn" value="Copy id!">
+      <p>Share this id with others so they can send you a message.</p>
+      <label>To set connection pass another peer id below </br>
+        <input type="text" placeholder="Set connection with user id..." id="callto-id">
+        <input type="button" class="button" id="make-call" value="Set connection">
+      </label>
+    </div>
+
+    <div class="data-container delay-display flex-box hidden invisible to-hide">
+      <input type="button" id="data-container-resize-bttn" calss="button" value="+">
+      <div id="message-box">
+        <div class="user-message"></div>
+      </div>
+
+      <div>
+        <label>Type your message below </br>
+          <div class="flex-container">
+            <input id="data-to-send" type="text" disabled>
+            <input id="send-data-bttn" class="button" type="button" value="Send your message!" disabled>
+          </div>
+        </label>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    <div id="snackbar">
+    </div>
+  </footer>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/peerjs@0.3.20/dist/peer.min.js"></script>
+<script src="public/javascripts/main.js"></script>
+<!--<script src="public/javascripts/service-worker.js"></script>-->
+
+</html>
