@@ -28,6 +28,6 @@
   "start_url": "/WebRTC-chat/chat.html",
   "scope": "/WebRTC-chat/",
   "display": "fullscreen",
-  "background_color": "#faebd7",
-  "theme_color": "#faebd7"
+  "background_color": "#fffaf0",
+  "theme_color": "#fffaf0"
 }
