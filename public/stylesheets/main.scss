@@ -7,10 +7,6 @@ body {
     background-color: $main-color;
     text-align: center;
     @include userSelect;
-    /* background-image: radial-gradient(
-        farthest-corner at 90% 90%, $background-color1, $background-color2
-    );*/
-    // background-attachment: fixed;
     &.using-mouse :focus:not(:disabled) { 
         outline: none;
     }
