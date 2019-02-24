@@ -28,8 +28,7 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-image: radial-gradient(farthest-corner at 90% 90%, antiquewhite, ghostwhite);
-  background-attachment: fixed; }
+  background-image: radial-gradient(farthest-corner at 90% 90%, antiquewhite, ghostwhite); }
   body.using-mouse :focus:not(:disabled) {
     outline: none; }
   body :focus:not(:disabled) {
