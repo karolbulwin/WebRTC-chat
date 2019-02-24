@@ -152,6 +152,7 @@ p {
             @include transition-duration(500ms);
         }
         input[type=button] {
+            display: none;
             margin: auto;
         }
     }
@@ -285,5 +286,11 @@ input[type=text] {
         opacity: 0;
     }
 } 
+
+@media screen and (min-width: 960px) {
+    #send-data-bttn {
+        display: block;
+    }
+}
 
 @import "print";
