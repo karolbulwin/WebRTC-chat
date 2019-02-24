@@ -208,6 +208,14 @@ input[type=text] {
     margin: 0;
 }
 
+.offline {
+    padding: 0.7em;
+    font-weight: bold;
+    font-size: 200%;
+    color: red;
+    @include boxshadowInset($horizontal: 0em, $vertical:0em, $blur: 1em, $spread: 0.0125em)
+}
+
 .temp-texarea {
     position: fixed;
     top: 0;

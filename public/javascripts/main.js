@@ -1,22 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const peer = new Peer({
-   // key: 'lwjd5qra8257b9', // cant sign up for free key :/
-    config: {
-      iceServers: [
-        {
-          url: 'stun:stun.l.google.com:19302' // add TURN server for users behind symmetric NATs
-        }
-      ]
-    },
-    debug: 3
-  });
-
+  let peer;
   let conn;
   let peerName;
-
-  peer.on('open', (id) => {
-    document.querySelector('#my-id').innerText = id;
-  });
 
   function showSnackbar(textToShow) {
     const snacbar = document.querySelector('#snackbar');
@@ -60,18 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
       hideElement();
     }
   }
-  // simpleAnimation();
-  window.onload = () => {
-    // setInterval(() => {
-    simpleAnimation();
-    setTimeout(() => {
-      simpleAnimation();
-    }, 3200);
-    setTimeout(() => {
-      simpleAnimation();
-    }, 6400);
-    // }, 1100);
-  };
 
   function showNextStep() {
     hideElement(50);
@@ -92,19 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  document.querySelector('#peer-name-bttn').addEventListener('click', checkTheName);
-
   function disabledElements() {
     document.querySelector('#make-call').setAttribute('disabled', '');
     document.querySelector('#callto-id').setAttribute('disabled', '');
   }
 
-  /*
-  function enabledElements() {
-    document.querySelector('#data-to-send').removeAttribute('disabled');
-    document.querySelector('#send-data-bttn').removeAttribute('disabled');
-  }
-*/
 
   function setDataConnection() {
     const anotherPeersId = document.querySelector('#callto-id').value;
@@ -142,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function sendSomeData() {
     const message = document.querySelector('#data-to-send').value;
-    // console.log(`connection info - peer id: ${peer.id}`);
     const data = {
       from: peerName,
       text: message
@@ -174,10 +138,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  document.querySelector('#make-call').addEventListener('click', setDataConnection);
-  document.querySelector('#send-data-bttn').addEventListener('click', sendMessage);
-
-
   function showWelcomeMessage() {
     const welcomeMessage = 'Welcome on peer to peer simmple chat!';
     document.querySelector('#message-box').children[0].innerText = welcomeMessage;
@@ -191,56 +151,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  peer.on('connection', (connection) => {
-    conn = connection;
-    checkThePeer(conn);
-    disabledElements();
-    showNextStep();
-    showWelcomeMessage();
-    showSnackbar('A connection has been established');
-
-    conn.on('data', (message) => {
-      createDivForMessage(message.from, message.text);
-      showLastMessageOnTheBottom();
-    });
-
-    function showErrorOnLastMessage() {
-      const lastMessage = getLastMessage();
-      lastMessage.classList.add('error');
-    }
-
-    function disabledChat() {
-      document.querySelector('#data-to-send').setAttribute('disabled', '');
-      document.querySelector('#send-data-bttn').setAttribute('disabled', '');
-      showErrorOnLastMessage();
-    }
-
-    conn.on('close', () => {
-      showSnackbar('Connection closed');
-      createDivForMessage('Error', 'Connection closed');
-      disabledChat();
-    });
-  });
-
-
-  peer.on('disconnected', () => {
-    showSnackbar('Connection has been lost');
-    // peer.reconnect();
-  });
-
   function clearPeerId() {
     document.querySelector('#callto-id').value = '';
   }
-
-  peer.on('error', (err) => {
-    showSnackbar(`An error ocurred with peer: ${err}`);
-    if (err.type === 'peer-unavailable') {
-      setTimeout(() => {
-        showSnackbar('Pass right peer id!');
-        clearPeerId();
-      }, 3500);
-    }
-  });
 
   function pressTheButton(target) {
     target.nextElementSibling.click();
@@ -251,10 +164,6 @@ document.addEventListener('DOMContentLoaded', () => {
       pressTheButton(e.target);
     }
   }
-
-  document.querySelectorAll('input[type=text').forEach((input) => {
-    input.addEventListener('keydown', listenForEnter);
-  });
 
   function copyPeerId() {
     const peerToCopy = document.querySelector('#my-id').innerText;
@@ -276,35 +185,98 @@ document.addEventListener('DOMContentLoaded', () => {
     textarea.remove();
   }
 
-  document.querySelector('#copy-bttn').addEventListener('click', copyPeerId);
+  if (navigator.onLine) {
+    peer = new Peer({
+      // key: 'lwjd5qra8257b9', // cant sign up for free key :/
+      config: {
+        iceServers: [
+          {
+            url: 'stun:stun.l.google.com:19302' // add TURN server for users behind symmetric NATs
+          }
+        ]
+      },
+      debug: 3
+    });
 
-  /*
-  function fullScreenModeOnOf() {
-    const chatWindow = document.querySelector('.data-container');
-    const resizeBttn = document.querySelector('#data-container-resize-bttn');
-    if (resizeBttn.value !== '+') {
-      resizeBttn.value = '+';
-      chatWindow.classList.remove('fullWindow');
+    peer.on('open', (id) => {
+      document.querySelector('#my-id').innerText = id;
+    });
+
+    window.onload = () => {
+      // setInterval(() => {
+      simpleAnimation();
       setTimeout(() => {
-        showLastMessageOnTheBottom();
-      }, 1500);
-    } else {
-      resizeBttn.value = '-';
-      chatWindow.classList.add('fullWindow');
+        simpleAnimation();
+      }, 3200);
       setTimeout(() => {
+        simpleAnimation();
+      }, 6400);
+      // }, 1100);
+    };
+
+    document.querySelector('#peer-name-bttn').addEventListener('click', checkTheName);
+
+    document.querySelector('#make-call').addEventListener('click', setDataConnection);
+    document.querySelector('#send-data-bttn').addEventListener('click', sendMessage);
+
+    peer.on('connection', (connection) => {
+      conn = connection;
+      checkThePeer(conn);
+      disabledElements();
+      showNextStep();
+      showWelcomeMessage();
+      showSnackbar('A connection has been established');
+
+      conn.on('data', (message) => {
+        createDivForMessage(message.from, message.text);
         showLastMessageOnTheBottom();
-        window.scroll({ behavior: 'smooth', top: document.body.scrollHeight });
-        // document.querySelector('body').scrollIntoView({ behavior: 'smooth', block: 'end' });
-      }, 1700);
-    }
+      });
+
+      function showErrorOnLastMessage() {
+        const lastMessage = getLastMessage();
+        lastMessage.classList.add('error');
+      }
+
+      function disabledChat() {
+        document.querySelector('#data-to-send').setAttribute('disabled', '');
+        document.querySelector('#send-data-bttn').setAttribute('disabled', '');
+        showErrorOnLastMessage();
+      }
+
+      conn.on('close', () => {
+        showSnackbar('Connection closed');
+        createDivForMessage('Error', 'Connection closed');
+        disabledChat();
+      });
+    });
+
+    peer.on('disconnected', () => {
+      showSnackbar('Connection has been lost');
+    });
+
+    peer.on('error', (err) => {
+      showSnackbar(`An error ocurred with peer: ${err}`);
+      if (err.type === 'peer-unavailable') {
+        setTimeout(() => {
+          showSnackbar('Pass right peer id!');
+          clearPeerId();
+        }, 3500);
+      }
+    });
+
+    document.querySelectorAll('input[type=text').forEach((input) => {
+      input.addEventListener('keydown', listenForEnter);
+    });
+
+    document.querySelector('#copy-bttn').addEventListener('click', copyPeerId);
+
+    document.body.addEventListener('mousedown', () => {
+      document.body.classList.add('using-mouse');
+    });
+    document.body.addEventListener('keydown', () => {
+      document.body.classList.remove('using-mouse');
+    });
+  } else {
+    document.querySelector('.offline').classList.remove('hidden', 'invisible');
   }
-  document.querySelector('#data-container-resize-bttn').addEventListener('click', fullScreenModeOnOf);
-  */
-
-  document.body.addEventListener('mousedown', () => {
-    document.body.classList.add('using-mouse');
-  });
-  document.body.addEventListener('keydown', () => {
-    document.body.classList.remove('using-mouse');
-  });
 });
