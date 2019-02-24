@@ -209,6 +209,9 @@ input[type=text] {
 }
 
 .offline {
+    position: absolute;
+    top: 0;
+    background-color: $bg-offline;
     padding: 0.7em;
     font-weight: bold;
     font-size: 200%;

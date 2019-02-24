@@ -212,6 +212,9 @@ input[type=text] {
   margin: 0; }
 
 .offline {
+  position: absolute;
+  top: 0;
+  background-color: gainsboro;
   padding: 0.7em;
   font-weight: bold;
   font-size: 200%;
