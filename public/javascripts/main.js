@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#callto-id').setAttribute('disabled', '');
   }
 
-
   function setDataConnection() {
     const anotherPeersId = document.querySelector('#callto-id').value;
     peerName = document.querySelector('#peer-name').value;
@@ -185,6 +184,10 @@ document.addEventListener('DOMContentLoaded', () => {
     textarea.remove();
   }
 
+  function isOffline() {
+    document.querySelector('.offline').classList.remove('hidden', 'invisible');
+  }
+
   if (navigator.onLine) {
     peer = new Peer({
       // key: 'lwjd5qra8257b9', // cant sign up for free key :/
@@ -275,8 +278,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     document.body.addEventListener('keydown', () => {
       document.body.classList.remove('using-mouse');
+
+    // navigator.onLine
     });
   } else {
-    document.querySelector('.offline').classList.remove('hidden', 'invisible');
+    isOffline();
   }
 });
