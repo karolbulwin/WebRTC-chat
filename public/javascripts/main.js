@@ -5,11 +5,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function showSnackbar(textToShow) {
     const snacbar = document.querySelector('#snackbar');
+    const sbContainer = document.querySelector('.sb-container');
     snacbar.innerText = textToShow;
     snacbar.className = 'show';
     setTimeout(() => {
       snacbar.className = snacbar.className.replace('show', '');
     }, 3000);
+    sbContainer.classList.add('sb-show');
+    setTimeout(() => {
+      sbContainer.classList.remove('sb-show');
+    }, 3040);
   }
 
   function disabledPeersNameInput() {

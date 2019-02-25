@@ -247,6 +247,7 @@ input[type=text] {
     font-size: 0.0625em;
 }
 .sb-container {
+    z-index: -1;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -271,6 +272,9 @@ input[type=text] {
             @include animation;
         }
     }
+}
+.sb-show {
+    z-index: 1;
 }
 
 @-webkit-keyframes fadein {

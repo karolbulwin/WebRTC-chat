@@ -250,6 +250,7 @@ input[type=text] {
   font-size: 0.0625em; }
 
 .sb-container {
+  z-index: -1;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -273,6 +274,9 @@ input[type=text] {
       visibility: visible;
       -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
       animation: fadein 0.5s, fadeout 0.5s 2.5s; }
+
+.sb-show {
+  z-index: 1; }
 
 @-webkit-keyframes fadein {
   0% {
