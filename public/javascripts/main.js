@@ -27,10 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function showNextElement(time = 50) {
-    scrollToBottom();
     const hiddenElements = document.querySelectorAll('.to-hide');
     hiddenElements[0].classList.remove('hidden');
     setTimeout(() => {
+      scrollToBottom();
       hiddenElements[0].classList.remove('invisible');
     }, time);
   }
