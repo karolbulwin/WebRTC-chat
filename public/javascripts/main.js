@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       showLastMessageOnTheBottom();
     }, 50);
-  }
+  });
 
   function hideInfo() {
     if (document.querySelector('#message-box').childElementCount > 1) {
