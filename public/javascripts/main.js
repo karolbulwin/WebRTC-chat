@@ -133,6 +133,8 @@ document.addEventListener('DOMContentLoaded', () => {
     lastMessage.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
+  document.querySelector('#data-to-send').addEventListener('click', showLastMessageOnTheBottom);
+
   function hideInfo() {
     if (document.querySelector('#message-box').childElementCount > 1) {
       const span = document.querySelector('.data-container label').children[0];
