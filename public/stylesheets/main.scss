@@ -246,23 +246,31 @@ input[type=text] {
     color: transparent;
     font-size: 0.0625em;
 }
-
-#snackbar {
-    visibility: hidden; 
-    min-width: 15.625em; 
-    margin-left: -7.8125em;
-    background-color: $snackbar-color;
-    color: $main-color;
-    text-align: center;
-    border-radius: 0.375em;
-    padding: 1em;
+.sb-container {
     position: fixed;
-    z-index: 1;
-    left: 50%;
-    bottom: 2em;
-    &.show {
-        visibility: visible;
-        @include animation;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    z-index: -1;
+    min-height: 3em;
+    width: 100%;
+    padding: 1em;
+    justify-content: center;
+    #snackbar {
+        visibility: hidden; 
+        min-width: 15.625em; 
+        background-color: $snackbar-color;
+        color: $main-color;
+        text-align: center;
+        border-radius: 0.375em;
+        padding: 1em;
+        position: relative;
+        z-index: 1;
+        bottom: 2em;
+        &.show {
+            visibility: visible;
+            @include animation;
+        }
     }
 }
 
