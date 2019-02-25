@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function scrollToBottom() {
-    document.body.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    window.scroll({ behavior: 'smooth', top: document.body.scrollHeight });
   }
 
   function showNextElement(time = 50) {
