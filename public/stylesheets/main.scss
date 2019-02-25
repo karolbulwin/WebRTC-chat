@@ -36,6 +36,9 @@ h2 {
 }
 
 label {
+    padding: 0 .7em;
+    // font-size: 0.9em;
+    color: $label;
     input {
         margin-top: 1em;
         margin-left: 0.5em;
@@ -140,7 +143,6 @@ p {
             flex-wrap: wrap;
         width: 90%;
         margin: auto;
-        padding-bottom: 1em;
         #data-to-send {
             margin-bottom: 0.5em;
             margin-top: 0.5em;
@@ -175,7 +177,10 @@ p {
 }
 
 .button {
-    padding: 0.3125em 0.9375em;
+    padding: .375em .75em;
+    font-size: 1em;
+    height: 2.375em;
+    line-height: 1.5;
     margin: 1em 0.5em 1em 0.5em;
     border-radius: 0.375em;
     @include boxshadow($horizontal: 0px, $vertical: 1px, $blur: 3px, $color: rgba(0, 0, 0, 0.8));
@@ -186,7 +191,7 @@ p {
         cursor: not-allowed;
     }
     &:hover:enabled, &:focus:enabled {
-        background-color: whitesmoke;
+        background-color: $bttn-hf;
     }
     &:active:enabled { 
         @include boxshadowInset($horizontal: 0px, $vertical: .1em, $blur: .3em, $spread: 0px, $color: rgba(0, 0, 0, 0.5));
@@ -200,6 +205,10 @@ input:not(.button) {
 }
 
 input[type=text] {
+    padding: .375em .75em;
+    font-size: 1em;
+    height: 2.375em;
+    line-height: 1.5;
     text-align: center;
     background-color: $off-color;
 }
@@ -215,7 +224,7 @@ input[type=text] {
     padding: 0.7em;
     font-weight: bold;
     font-size: 200%;
-    color: red;
+    color: $error-color;
     @include boxshadowInset($horizontal: 0em, $vertical:0em, $blur: 1em, $spread: 0.0125em)
 }
 
