@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function simpleAnimation() {
     if (document.querySelector('.to-hide').tagName === 'DIV') {
       showNextElement();
-      // clearInterval();
     } else {
       showNextElement();
       hideElement();
@@ -222,7 +221,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     window.onload = () => {
-      // setInterval(() => {
       simpleAnimation();
       setTimeout(() => {
         simpleAnimation();
@@ -230,7 +228,6 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         simpleAnimation();
       }, 6400);
-      // }, 1100);
     };
 
     document.querySelector('#peer-name-bttn').addEventListener('click', checkTheName);
@@ -294,8 +291,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     document.body.addEventListener('keydown', () => {
       document.body.classList.remove('using-mouse');
-
-    // navigator.onLine
     });
   } else {
     isOffline();
