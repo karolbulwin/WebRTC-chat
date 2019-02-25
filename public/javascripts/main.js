@@ -22,15 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#peer-name-bttn').setAttribute('disabled', '');
   }
 
-  function scrollToBottom() {
-    window.scroll({ behavior: 'smooth', top: document.body.scrollHeight });
-  }
-
   function showNextElement(time = 50) {
     const hiddenElements = document.querySelectorAll('.to-hide');
     hiddenElements[0].classList.remove('hidden');
     setTimeout(() => {
-      scrollToBottom();
       hiddenElements[0].classList.remove('invisible');
     }, time);
   }
