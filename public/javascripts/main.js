@@ -22,7 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#peer-name-bttn').setAttribute('disabled', '');
   }
 
+  function scrollToBottom() {
+    document.body.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  }
+
   function showNextElement(time = 50) {
+    scrollToBottom();
     const hiddenElements = document.querySelectorAll('.to-hide');
     hiddenElements[0].classList.remove('hidden');
     setTimeout(() => {
