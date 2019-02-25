@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         ]
       },
-      debug: 3
+      debug: 2
     });
 
     peer.on('open', (id) => {
