@@ -68,6 +68,25 @@ p {
     -ms-user-select: text;
     user-select: text; }
 
+.fs-1-3 {
+  font-size: 1.3em; }
+
+.bold {
+  font-weight: bold; }
+
+.mt-2em {
+  margin-top: 2em; }
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.swimFromLeft {
+  -webkit-animation-name: swimFromLeft;
+  animation-name: swimFromLeft; }
+
 .flex-box {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -182,7 +201,7 @@ p {
   visibility: hidden;
   opacity: 0; }
 
-.delay-display {
+.delay-2s {
   -webkit-transition-duration: 2s;
   transition-duration: 2s; }
 
@@ -254,10 +273,14 @@ input[type=text] {
   position: fixed;
   bottom: 0;
   left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   min-height: 3em;
   width: 100%;
   padding: 1em;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center; }
   .sb-container #snackbar {
     visibility: hidden;
@@ -309,6 +332,44 @@ input[type=text] {
   100% {
     bottom: 0;
     opacity: 0; } }
+
+@-webkit-keyframes swimFromLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100em, 0, 0);
+    transform: translate3d(-100em, 0, 0); }
+  40% {
+    opacity: 1;
+    -webkit-transform: translate3d(1.4em, 0, 0);
+    transform: translate3d(1.4em, 0, 0); }
+  60% {
+    -webkit-transform: translate3d(-1em, 0, 0);
+    transform: translate3d(-1em, 0, 0); }
+  80% {
+    -webkit-transform: translate3d(0.5em, 0, 0);
+    transform: translate3d(0.5em, 0, 0); }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+
+@keyframes swimFromLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100em, 0, 0);
+    transform: translate3d(-100em, 0, 0); }
+  40% {
+    opacity: 1;
+    -webkit-transform: translate3d(1.4em, 0, 0);
+    transform: translate3d(1.4em, 0, 0); }
+  60% {
+    -webkit-transform: translate3d(-1em, 0, 0);
+    transform: translate3d(-1em, 0, 0); }
+  80% {
+    -webkit-transform: translate3d(0.5em, 0, 0);
+    transform: translate3d(0.5em, 0, 0); }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
 
 @media screen and (min-width: 960px) {
   #send-data-bttn {

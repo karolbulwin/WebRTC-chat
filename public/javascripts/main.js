@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function createDivForMessage(from, message) {
     const divForUserMessage = document.createElement('div');
-    divForUserMessage.classList.add('user-message');
+    divForUserMessage.classList.add('user-message', 'animated', 'swimFromLeft');
     divForUserMessage.innerText = `${from}: ${message}`;
     document.querySelector('#message-box').appendChild(divForUserMessage);
   }

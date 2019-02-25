@@ -61,37 +61,39 @@
 
 <body>
   <header>
-    <h1 class="delay-display flex-box hidden invisible to-hide">WebRTC</h1>
+    <h1 class="delay-2s flex-box hidden invisible to-hide">WebRTC</h1>
   </header>
 
   <main>
 
-    <h2 class="delay-display flex-box hidden invisible to-hide">Simple data connections using PeerJS</h2>
+    <h2 class="delay-2s flex-box hidden invisible to-hide">Simple data connections using PeerJS</h2>
 
-    <div class="delay-display flex-box hidden invisible to-hide">
-      <label>Type your name below</br>
+    <div class="delay-2s flex-box hidden invisible to-hide">
+      <label><span class="fs-1-3">Type your name below</span></br>
         <input type="text" id="peer-name" placeholder="Your name...">
         <input type="button" id="peer-name-bttn" class="button" value="Confirm">
       </label>
     </div>
 
-    <div class="delay-display flex-box hidden invisible to-hide">
-      <p>Your id: <span id="my-id">...</span></p>
+    <div class="delay-2s flex-box hidden invisible to-hide">
+      <p>Your id: <span id="my-id" class="bold">...</span></p>
       <input type="button" class="button" id="copy-bttn" value="Copy id!">
       <p>Share this id with others so they can send you a message.</p>
-      <label>To set connection pass another peer id below </br>
-        <input type="text" placeholder="Set connection with user id..." id="callto-id">
-        <input type="button" class="button" id="make-call" value="Set connection">
+      <label class="mt-2em"><span class="fs-1-3">To set connection pass another peer id below</span>
+        <div class="flex-container">
+          <input type="text" placeholder="Set connection with user id..." id="callto-id">
+          <input type="button" class="button" id="make-call" value="Set connection">
+        </div>
       </label>
     </div>
 
-    <div class="data-container delay-display flex-box hidden invisible to-hide">
+    <div class="data-container delay-2s flex-box hidden invisible to-hide">
       <div id="message-box">
-        <div class="user-message"></div>
+        <div class="user-message fs-1-3 animated swimFromLeft"></div>
       </div>
 
       <div>
-        <label><span class="delay-display">Type your message below</span>
+        <label><span class="delay-2s">Type your message below</span>
           <div class="flex-container">
             <input id="data-to-send" type="text">
             <input id="send-data-bttn" class="button" type="button" value="Send your message!">
@@ -101,7 +103,7 @@
 
     </div>
 
-    <div class="offline delay-display flex-box hidden invisible">
+    <div class="offline delay-2s flex-box hidden invisible">
       You are offline! To use this app you have to be online!
     </div>
 
