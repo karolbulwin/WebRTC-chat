@@ -144,6 +144,8 @@ p {
       .data-container #message-box .user-message.error {
         font-weight: bold;
         color: #e41c1c; }
+  .data-container label {
+    padding: 0; }
   .data-container .flex-container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -155,7 +157,8 @@ p {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     width: 90%;
-    margin: auto; }
+    margin: auto;
+    padding-bottom: .7em; }
     .data-container .flex-container #data-to-send {
       margin-bottom: 0.5em;
       margin-top: 0.5em;

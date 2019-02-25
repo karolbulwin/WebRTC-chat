@@ -129,11 +129,22 @@ document.addEventListener('DOMContentLoaded', () => {
     lastMessage.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
+  function hideInfo() {
+    if (document.querySelector('#message-box').childElementCount > 1) {
+      const span = document.querySelector('.data-container label').children[0];
+      span.classList.add('invisible');
+      setTimeout(() => {
+        span.classList.add('hidden');
+      }, 1000);
+    }
+  }
+
   function sendMessage() {
     if (thereIsMessage() === true) {
       sendSomeData();
       clearSendTextBox();
       showLastMessageOnTheBottom();
+      hideInfo();
     }
   }
 

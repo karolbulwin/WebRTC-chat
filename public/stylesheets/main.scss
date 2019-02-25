@@ -37,7 +37,6 @@ h2 {
 
 label {
     padding: 0 .7em;
-    // font-size: 0.9em;
     color: $label;
     input {
         margin-top: 1em;
@@ -131,6 +130,9 @@ p {
             }
         }
     }
+    label {
+        padding: 0;
+    }
     .flex-container {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -143,6 +145,7 @@ p {
             flex-wrap: wrap;
         width: 90%;
         margin: auto;
+        padding-bottom: .7em;
         #data-to-send {
             margin-bottom: 0.5em;
             margin-top: 0.5em;
