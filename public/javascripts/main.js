@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function showWelcomeMessage() {
-    const welcomeMessage = 'Welcome on peer to peer simmple chat!';
+    const welcomeMessage = 'Welcome on peer to peer simple chat!';
     document.querySelector('#message-box').children[0].innerText = welcomeMessage;
   }
 
