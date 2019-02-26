@@ -5,7 +5,7 @@ const urlsToCache = [
   'favicon.ico',
   'public/stylesheets/main.css',
   'public/javascripts/main.js',
-  'public/javascripts/serwice-worker.js',
+  'public/javascripts/service-worker.js',
   'https://fonts.googleapis.com/css?family=Open+Sans',
   'https://cdn.jsdelivr.net/npm/peerjs@0.3.20/dist/peer.min.js'
 ];
