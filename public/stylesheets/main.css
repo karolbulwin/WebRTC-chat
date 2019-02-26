@@ -151,6 +151,7 @@ p {
     user-select: text; }
     .data-container #message-box .user-message {
       padding: .3125em .8125em;
+      word-break: break-word;
       -webkit-user-select: auto;
       -moz-user-select: auto;
       -ms-user-select: auto;

@@ -140,6 +140,7 @@ p {
         @include userSelect(text);
         .user-message {
             padding: .3125em .8125em;
+            word-break: break-word;
             @include userSelect($option: auto);
             &:not(:first-child) {
                 text-align: left;
