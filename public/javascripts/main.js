@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showLastMessageOnTheBottom();
     setTimeout(() => {
       showLastMessageOnTheBottom();
-    }, 2050);
+    }, 2150);
   });
 
   function hideInfo() {
