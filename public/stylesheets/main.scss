@@ -139,8 +139,7 @@ p {
         @include boxshadowInset;
         @include userSelect(text);
         .user-message {
-            padding: 0.3125em;
-            margin-left: 0.5em;
+            padding: .3125em .8125em;
             @include userSelect($option: auto);
             &:not(:first-child) {
                 text-align: left;

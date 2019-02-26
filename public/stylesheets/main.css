@@ -150,8 +150,7 @@ p {
     -ms-user-select: text;
     user-select: text; }
     .data-container #message-box .user-message {
-      padding: 0.3125em;
-      margin-left: 0.5em;
+      padding: .3125em .8125em;
       -webkit-user-select: auto;
       -moz-user-select: auto;
       -ms-user-select: auto;
