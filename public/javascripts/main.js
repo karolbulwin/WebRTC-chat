@@ -134,9 +134,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   document.querySelector('#data-to-send').addEventListener('click', () => {
+    showLastMessageOnTheBottom();
     setTimeout(() => {
       showLastMessageOnTheBottom();
-    }, 1450);
+    }, 2050);
   });
 
   function hideInfo() {
