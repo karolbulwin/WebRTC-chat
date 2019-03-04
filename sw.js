@@ -1,4 +1,4 @@
-const CACHE_NAME = 'chat-cache-v1.1';
+const CACHE_NAME = 'chat-cache-v1.2';
 const urlsToCache = [
   '/',
   'chat.html',
@@ -24,7 +24,7 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('activate', (event) => {
-  const cacheWhitelist = ['chat-cache-v1.1'];
+  const cacheWhitelist = ['chat-cache-v1.2'];
 
   event.waitUntil(
     caches.keys().then(cacheNames => Promise.all(
